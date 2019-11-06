@@ -19,7 +19,7 @@ This simple starter kit will help you understand
 
 Of course, as of 2019, a **ton** of options are available to deploy your webhook on the internet. This is a matter of preference.
 
-We usually use two tools for development ::
+We usually use two tools for development :
 
 - While developing we use **Postman** to test each endpoint.
 - Then we connect locally our webhook thanks to **ngrok**, check that everything is OK.
@@ -49,39 +49,39 @@ Go to [Proximity](https://www.gogowego.com/login)
 | intent.inputs | list of the entites found                       |
 
 ```json
-body: {
-		"contexts": [],
-		"endConversation": false,
-		"fulfillment": {
-			"data": [
-				{
-					"text": "With a fallback button",
-					"type": "button",
-					"value": "Fallback"
-				}
-			],
-			"stream": [
-        {
-          "text": "Je suis navré je n'ai pas réussi à contacter le webhook."
-        }
-			]
-		},
-		"intent": {
-			"confidence": 1,
-			"inputs": {},
-			"name": "Webhook"
-		},
-		"lang": "fr",
-		"originalRequest": null,
-		"query": "Je souhaite réserver trois chambres pour 4 personnes avec petit déjeuner",
-    "sessionId": "BxopMtpjDl5Pfrc4",
-    "timestamp": "2018-09-21T12:02:39+00:00",
-    "user": {
-    	"conversationId": "gUMzmBuXOi",
-    	"conversationSize": 1,
-      "id": "MIlVnHo9ZA",
-      "platform": "web",
-     },
+"body": {
+  "contexts": [],
+  "endConversation": false,
+  "fulfillment": {
+    "data": [
+      {
+        "text": "With a fallback button",
+        "type": "button",
+        "value": "Fallback",
+      }
+    ],
+    "stream": [
+      {
+        "text": "Je suis navré je n'ai pas réussi à contacter le webhook.",
+      }
+    ]
+  },
+  "intent": {
+    "confidence": 1,
+    "inputs": {},
+    "name": "Webhook",
+  },
+  "lang": "fr",
+  "originalRequest": null,
+  "query": "Je souhaite réserver trois chambres pour 4 personnes avec petit déjeuner",
+  "sessionId": "BxopMtpjDl5Pfrc4",
+  "timestamp": "2018-09-21T12:02:39+00:00",
+  "user": {
+    "conversationId": "gUMzmBuXOi",
+    "conversationSize": 1,
+    "id": "MIlVnHo9ZA",
+    "platform": "web",
+    },
    }
 ```
 

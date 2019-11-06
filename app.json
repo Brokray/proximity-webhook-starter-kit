@@ -1,0 +1,6 @@
+{
+  "name": "Proximity Webhook",
+  "description": "My own Proximity Webhook.",
+  "repository": "https://github.com/Brokray/proximity-webhook-starter-kit.git",
+  "keywords": ["node", "express", "webhook", "proximity"]
+}
