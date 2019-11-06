@@ -17,7 +17,15 @@ This simple starter kit will help you understand
 
 ## Deploy
 
-Of course a ton of options are available if you would like to deploy y
+Of course, as of 2019, a **ton** of options are available to deploy your webhook on the internet. This is a matter of preference.
+
+We usually use two tools for development ::
+
+- While developing we use **Postman** to test each endpoint.
+- Then we connect locally our webhook thanks to **ngrok**, check that everything is OK.
+
+Finally for production we deploy our webhook on a service such as **Heroku**.
+
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Link your webhook to Proximity
@@ -36,49 +44,67 @@ Go to [Proximity](https://www.gogowego.com/login)
 | Parameter     | Description                                     |
 | ------------- | ----------------------------------------------- |
 | query         | the text message user said                      |
-| text          | default response found in the intent            |
+| fulfillment   | the default response found in the intent        |
 | intent        | the name and the confidence of the intent found |
 | intent.inputs | list of the entites found                       |
 
 ```json
-body: { "id": "",
-    "timestamp": "2018-09-21T12:02:39+00:00",
+body: {
+		"contexts": [],
+		"endConversation": false,
+		"fulfillment": {
+			"data": [
+				{
+					"text": "With a fallback button",
+					"type": "button",
+					"value": "Fallback"
+				}
+			],
+			"stream": [
+        {
+          "text": "Je suis navré je n'ai pas réussi à contacter le webhook."
+        }
+			]
+		},
+		"intent": {
+			"confidence": 1,
+			"inputs": {},
+			"name": "Webhook"
+		},
+		"lang": "fr",
+		"originalRequest": null,
+		"query": "Je souhaite réserver trois chambres pour 4 personnes avec petit déjeuner",
     "sessionId": "BxopMtpjDl5Pfrc4",
-    "user": { "platform": "web", "conversationSize": 1 },
-    "lang": "fr",
-    "query": "Je souhaite réserver trois chambres pour 4 personnes avec petit déjeuner",
-    "text": "Nous avons un soucis avec votre réservation, réessayez ultérieurement.",
-    "textToSpeech":
-    {   "type": "plainText",
-        "value": "Nous avons un soucis avec votre réservation, réessayez ultérieurement." },
-        "intent":
-    {   "name": "Reservation",
-        "confidence": 0.8936457989344966,
-        "inputs": { "ggwg/numberC": 3, "ggwg/numberP": 4, "formule": "f1" } },
-    "posts": [],
-   "endConversation": false,
-   "status": { "code": 200, "errorType": "success" }
+    "timestamp": "2018-09-21T12:02:39+00:00",
+    "user": {
+    	"conversationId": "gUMzmBuXOi",
+    	"conversationSize": 1,
+      "id": "MIlVnHo9ZA",
+      "platform": "web",
+     },
    }
 ```
 
 ### Post Data JSON structured like this:
 
-| Parameter    | Description                                                        |
-| ------------ | ------------------------------------------------------------------ |
-| speech       | the text message to output                                         |
-| posts        | a list of rich messages                                            |
-| rich message | can be either a button, link or card.                              |
-| button       | a button will send the "value" as user message when he click on it |
-| link         | the link will redirect the user either on a website, call, mail    |
-| card         | a card with title, image, text, and a list of buttons              |
+| Parameter    | Description                                                                                                             |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| stream       | the stream text message to output                                                                                       |
+| data         | a list of rich messages                                                                                                 |
+| rich message | can be either a button, event, link or card.                                                                            |
+| button       | a classic button will send the "value" as user message when he click on it                                              |
+| event        | an event button will send an event "value" when the user click on it                                                    |
+| link         | the link will redirect the user either on a website, call, mail... Any valid URI can be used (mailto:hello@gogowego.com | tel:PHONENUMBER ...). |
+| card         | a card with title, image, text, and a list of buttons                                                                   |
 
 ```json
 {
-  "speech" : "text to output",
-  "posts" : [
-    {"type" : "button","text":"click me","value":"clicked"},
-    {"type" : "link","text":"click me","value":"URL | tel:PHONENUMBER | mailto:EMAIL"},
-    {"type" : "card","title":"I am a card","image":"image URL","text":"some text..","buttons":[
+  "stream" : [{ "text": "Here is the differents hotels we found." }],
+  "data" : [
+    {"type" : "button","text":"Schedule a new trip","value":"I would like to schedule a trip"},
+    {"type" : "event", "text":"Help me with something else","value":"PROPOSALS"},
+    {"type" : "link", "text":"Go on our website","value":"https://gogowego.com"},
+    {"type" : "card","title":"Superb Hotel","image":"IMAGE_URL","text":"Our hotel is one of...","buttons":[
         {"type":"button | link","text":"...","value":"..."},
         {"..."}
     ]},
