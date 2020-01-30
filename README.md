@@ -50,7 +50,7 @@ Go to [Proximity](https://www.gogowego.com/login)
 - Test it! Try your Virtual Assistant and start building it's intelligence using Webhook.
 - Enjoy!
 
-### Request body structure you get from your bot
+### Request body (structure you get from your bot)
 
 | Parameter     | Description                                     |
 | ------------- | ----------------------------------------------- |
@@ -96,7 +96,7 @@ Go to [Proximity](https://www.gogowego.com/login)
    }
 ```
 
-### Post Data JSON structured like this:
+### Response Body (data sent back a response to the end user, JSON):
 
 | Parameter    | Description                                                                                                             |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
