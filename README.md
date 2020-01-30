@@ -9,13 +9,24 @@ This simple starter kit will help you understand
 
 # How it works?
 
-## Custom your code
+## Overview
 
 - Clone this repo.
 - Custom your code.
 - Deploy your app on the internet.
 
-## Deploy
+## First launch
+
+After cloning this repo, do not forget to try it on your local machine.
+
+For that :
+- Run : `npm install`
+- Verify if it works in development mode : `npm run start:dev`
+- To locally use your webhook with a Proximty Virtual Agent of your own, you can also run : `npm run tunnel`.   
+This command will launch ngrok and create an internet endpoint to your local machine.  
+:rotating_light: Do not forget to setup your [Webhook config in Proximity](#link-your-webhook-to-proximity) !
+
+## :rocket: Deploy
 
 Of course, as of 2019, a **ton** of options are available to deploy your webhook on the internet. This is a matter of preference.
 
@@ -28,7 +39,7 @@ Finally for production we deploy our webhook on a service such as **Heroku**.
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Link your webhook to Proximity
+## :tada: Link your webhook to Proximity
 
 Go to [Proximity](https://www.gogowego.com/login)
 
