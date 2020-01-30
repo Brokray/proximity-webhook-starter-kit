@@ -1,17 +1,18 @@
-import * as express from "express";
 import bodyParser from "body-parser";
-import { handleWebhook } from "src/routes";
+import express from "express";
+import routes from "./routes";
 
-// a port should be specified in the environement
+// A port should be specified in the environement
 const port = process.env.PORT || 8080;
 
-// create server and configure it. Here we are using bodyParser.
+// Create server and configure it. Here we are also using bodyParser.
 const webhookServer = express();
 webhookServer.use(bodyParser.json());
 
-// declare webhooks routes and the associated router function
-webhookServer.post("/hello-webhook", handleWebhook);
+// Below you can define all your webhooks
+webhookServer.post("/search/qwant", routes.qwant);
 
+// Start the server
 webhookServer.listen(port, function() {
-  console.info("Server is up and running...");
+  console.info("Webhook server is up and running...");
 });

@@ -1,23 +1,18 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["ES5","ES2018","esnext"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es2017",
+    "target": "es5",
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "strict": false,
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.js", "**/*.ts", "*.d.ts"],
+  "exclude": ["node_modules", "dist"]
 }
