@@ -90,7 +90,7 @@ Go to [Proximity](https://www.gogowego.com/login)
 | Parameter    | Description                                                                                                             |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | stream       | the stream text message to output                                                                                       |
-| data         | a list of rich messages                                                                                                 |
+| posts         | a list of rich messages                                                                                                 |
 | rich message | can be either a button, event, link or card.                                                                            |
 | button       | a classic button will send the "value" as user message when he click on it                                              |
 | event        | an event button will send an event "value" when the user click on it                                                    |
@@ -100,7 +100,7 @@ Go to [Proximity](https://www.gogowego.com/login)
 ```json
 {
   "stream" : [{ "text": "Here is the differents hotels we found." }],
-  "data" : [
+  "posts" : [
     {"type" : "button","text":"Schedule a new trip","value":"I would like to schedule a trip"},
     {"type" : "event", "text":"Help me with something else","value":"PROPOSALS"},
     {"type" : "link", "text":"Go on our website","value":"https://gogowego.com"},
