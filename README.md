@@ -1,4 +1,4 @@
-# Proximity Webhook Example
+# Prisme.ai Webhook Example
 
 A very simple step by step, 10 minutes demo of implementing services using webhook. Whatever user asks your Bot will be sent to your API and then after some processing it'll return the response to the bot, it can be text or even rich messages like cards!.
 
